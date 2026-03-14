@@ -5,5 +5,17 @@
 .DS_Store
 venv/
 
+
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+dist/
+
+
 # auto-created on build
 templates/generated.html

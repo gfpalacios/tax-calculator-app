@@ -1,0 +1,8 @@
+{"level":"error","message":"Failed to fetch tax brackets for year 2020 after retries: ","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:41"}
+{"level":"error","message":" - /api/tax/calculate?salary=100000&year=2020 - GET - ::1","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:41"}
+{"level":"error","message":"Failed to fetch tax brackets for year 2020 after retries: ","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:45"}
+{"level":"error","message":" - /api/tax/calculate?salary=100000&year=2020 - GET - ::1","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:45"}
+{"level":"error","message":"Failed to fetch tax brackets for year 2020 after retries: ","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:45"}
+{"level":"error","message":" - /api/tax/calculate?salary=100000&year=2020 - GET - ::1","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:45"}
+{"level":"error","message":"Failed to fetch tax brackets for year 2020 after retries: ","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:46"}
+{"level":"error","message":" - /api/tax/calculate?salary=100000&year=2020 - GET - ::1","service":"tax-calculator-api","timestamp":"2026-03-14 18:34:46"}
