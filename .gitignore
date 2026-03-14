@@ -1,3 +1,4 @@
+
 *.swp
 *.un~
 *idea/
@@ -6,6 +7,10 @@
 venv/
 
 
+# logs
+logs/
+error.log
+combined.log
 
 # Environment variables
 .env
