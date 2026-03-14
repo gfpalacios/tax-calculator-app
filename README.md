@@ -23,6 +23,7 @@ Navigate to [http://localhost:5001](http://localhost:5001) to view the documenta
 ### 2. Backend
 ```bash
 cd backend
+cp .env.example .env
 npm install
 npm run dev
 ```
@@ -30,6 +31,7 @@ npm run dev
 ### 3. Frontend
 ```bash
 cd frontend
+cp .env.example .env
 npm install
 npm run dev
 ```

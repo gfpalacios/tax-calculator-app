@@ -1,4 +1,13 @@
 import { createLogger, format, transports } from 'winston';
+import path from 'path';
+import fs from 'fs';
+
+const logDir = process.env.LOG_DIR || 'logs';
+
+// Create the log directory if it does not exist
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
 
 const logger = createLogger({
   level: 'info',
@@ -10,8 +19,13 @@ const logger = createLogger({
   ),
   defaultMeta: { service: 'tax-calculator-api' },
   transports: [
-    new transports.File({ filename: 'error.log', level: 'error' }),
-    new transports.File({ filename: 'combined.log' }),
+    new transports.File({ 
+      filename: path.join(logDir, 'error.log'), 
+      level: 'error' 
+    }),
+    new transports.File({ 
+      filename: path.join(logDir, 'combined.log') 
+    }),
   ],
 });
 
