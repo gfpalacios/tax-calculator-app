@@ -13,10 +13,10 @@ router.get('/calculate', async (req, res, next) => {
       return res.status(400).json({ error: 'Salary and year are required' });
     }
 
-    const salaryNum = parseFloat(salary as string);
-    const yearNum = parseInt(year as string);
+    const salaryNum = Number.parseFloat(salary as string);
+    const yearNum = Number.parseInt(year as string);
 
-    if (isNaN(salaryNum) || salaryNum < 0) {
+    if (Number.isNaN(salaryNum) || salaryNum < 0) {
       return res.status(400).json({ error: 'Invalid salary' });
     }
 
