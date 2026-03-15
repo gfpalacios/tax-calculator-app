@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      network: host
+    ports:
+      - "3001:3001"
+    dns:
+      - 8.8.8.8
+    environment:
+      - PORT=3001
+      - NODE_ENV=development
+      - TAX_API_URL=http://localhost:5001
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - tax-app-network
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      network: host
+    ports:
+      - "3000:3000"
+    dns:
+      - 8.8.8.8
+    environment:
+      - VITE_API_URL=http://backend:3001
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - tax-app-network
+    restart: always
+
+networks:
+  tax-app-network:
+    driver: bridge
