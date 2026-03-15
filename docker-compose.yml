@@ -1,15 +1,10 @@
-version: '3.8'
-
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-      network: host
+    image: node:22.9.0
+    command: sh -c "npm install --verbose && npm run build && npm run start"
+    working_dir: /app
     ports:
       - "3001:3001"
-    dns:
-      - 8.8.8.8
     environment:
       - PORT=3001
       - NODE_ENV=development
@@ -22,14 +17,11 @@ services:
     restart: always
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      network: host
+    image: node:22.9.0
+    command: sh -c "npm install --verbose && npm run build && npm run preview"
+    working_dir: /app
     ports:
       - "3000:3000"
-    dns:
-      - 8.8.8.8
     environment:
       - VITE_API_URL=http://backend:3001
     volumes:
@@ -43,4 +35,7 @@ services:
 
 networks:
   tax-app-network:
+    name: tax-app-network
     driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1400
