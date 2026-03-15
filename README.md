@@ -5,7 +5,7 @@ Welcome to the Tax Calculator App.
 ## Stack
 - **Backend:** Node.js, Express.js, TypeScript
 - **Frontend:** React, Material UI, Tailwind CSS
-- **Testing:** Jest, React Testing Library
+- **Testing:** Jest, React Testing Library, Cypress (E2E)
 - **Logging:** Winston
 
 ## Get up and running
@@ -48,6 +48,14 @@ npm run test
 ### Frontend Tests
 ```bash
 cd frontend
+npm run test
+```
+
+### E2E Tests (Cypress)
+To run the E2E tests, make sure both the backend and frontend are running, then:
+```bash
+cd cypress
+npm install
 npm run test
 ```
 
