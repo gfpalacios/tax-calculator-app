@@ -1,4 +1,4 @@
-import app from './index';
+import app from './app';
 import logger from './logging/logger';
 
 const PORT = process.env.PORT || 3001;

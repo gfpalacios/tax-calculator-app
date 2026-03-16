@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../index';
+import app from '../app';
 import * as taxService from '../services/taxService';
 
 jest.mock('../services/taxService');
