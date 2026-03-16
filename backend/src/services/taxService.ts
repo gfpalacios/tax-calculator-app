@@ -1,15 +1,10 @@
 import axios from 'axios';
 import logger from '../logging/logger';
+import { TaxBracketData } from '../model/TaxBracketData';
 
 const API_BASE_URL = process.env.TAX_API_URL || 'http://localhost:5001';
 
-export interface TaxBracket {
-  min: number;
-  max?: number;
-  rate: number;
-}
-
-export const fetchTaxBrackets = async (year: number, retries = 3): Promise<TaxBracket[]> => {
+export const fetchTaxBrackets = async (year: number, retries = 3): Promise<TaxBracketData[]> => {
   try {
     const response = await axios.get(`${API_BASE_URL}/tax-calculator/tax-year/${year}`);
     if (response.data?.tax_brackets) {
