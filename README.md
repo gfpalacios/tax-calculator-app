@@ -51,7 +51,13 @@ cd frontend
 npm run test
 ```
 
-### E2E Tests (Cypress)
+### Docker
+As an alternative, you can also run the backend and frontend using docker compose:
+```bash
+docker compose up
+```
+
+## E2E Tests (Cypress)
 To run the E2E tests, make sure both the backend and frontend are running, then:
 ```bash
 cd cypress
