@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { fetchTaxBrackets } from '../services/taxService';
-import { calculateTax } from '../utils/taxCalculator';
+import { TaxCalculator } from '../model/TaxCalculator';
 import logger from '../logging/logger';
 
 const router = Router();
@@ -28,7 +28,8 @@ router.get('/calculate', async (req, res, next) => {
     logger.info(`Calculating tax for salary: ${salaryNum}, year: ${yearNum}`);
 
     const brackets = await fetchTaxBrackets(yearNum);
-    const result = calculateTax(salaryNum, brackets);
+    const calculator = new TaxCalculator(brackets);
+    const result = calculator.calculate(salaryNum);
 
     res.json({
       salary: salaryNum,
